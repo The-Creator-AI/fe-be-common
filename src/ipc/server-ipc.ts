@@ -1,7 +1,7 @@
-import { ClientToServerChannel, ServerToClientChannel } from "./channels.enum";
+import { ToServer, ToClient } from "./channels.enum";
 import { ChannelBody } from "./channels.type";
 
-export const sendToClient = <T extends ServerToClientChannel>(
+export const sendToClient = <T extends ToClient>(
     socket: any,
     channel: T,
     body: ChannelBody<T>,

@@ -1,25 +1,13 @@
 import { SummarizedResult } from "../types";
-import { ClientToServerChannel, ServerToClientChannel } from "./channels.enum";
+import { ToServer, ToClient } from "./channels.enum";
 
-export type ChannelBody<T extends ClientToServerChannel | ServerToClientChannel> =
-    T extends ClientToServerChannel.SendMessage ? { message: string } :
-    T extends ServerToClientChannel.SendMessage ? { message: string } :
+export type ChannelBody<T extends ToServer | ToClient> =
+    // --- Research ---    
+    T extends ToServer.SEARCH ? { topic: string } :
+    T extends ToClient.PROGRESS ? { message: string } :
+    T extends ToClient.RESULT ? SummarizedResult :
+    T extends ToClient.ERROR ? { message: string } :
+    T extends ToClient.COMPLETE ? { message: string } :
 
-    T extends ClientToServerChannel.RequestChatHistory ? {
-        chatId?: string
-    } :
-    T extends ServerToClientChannel.SendChatHistory ? {
-        chatId: string;
-        messages: {
-            user: string;
-            message: string;
-        }[];
-    } :
-    
-    T extends ClientToServerChannel.search ? { topic: string } :
-    T extends ServerToClientChannel.progress ? { message: string } :
-    T extends ServerToClientChannel.result ? SummarizedResult :
-    T extends ServerToClientChannel.error ? { message: string } :
-    T extends ServerToClientChannel.complete ? { message: string } :
-
+    // --- Other Groups... ---
     never; 

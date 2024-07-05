@@ -1,14 +1,10 @@
-export enum ClientToServerChannel {
-    SendMessage = 'clientToServer.sendMessage',
-    RequestChatHistory = 'clientToServer.requestChatHistory',
-    search = 'search',
+export enum ToServer {
+    SEARCH = 'clientToServer.search',
 }
 
-export enum ServerToClientChannel {
-    SendMessage = 'serverToClient.sendMessage',
-    SendChatHistory = 'serverToClient.sendChatHistory',
-    progress = 'progress',
-    result = 'result',
-    error = 'error',
-    complete = 'complete'
+export enum ToClient {
+    PROGRESS = 'serverToClient.progress',
+    RESULT = 'serverToClient.result',
+    ERROR = 'serverToClient.error',
+    COMPLETE = 'serverToClient.complete'
 }

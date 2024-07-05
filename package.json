@@ -30,7 +30,7 @@
         "singleQuote": true,
         "trailingComma": "es5"
     },
-    "name": "fe-be-common",
+    "name": "@The-Creator-AI/fe-be-common",
     "author": "Pulkit Singh",
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/"

@@ -32,6 +32,9 @@
     },
     "name": "fe-be-common",
     "author": "Pulkit Singh",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
     "module": "dist/fe-be-common.esm.js",
     "size-limit": [
         {

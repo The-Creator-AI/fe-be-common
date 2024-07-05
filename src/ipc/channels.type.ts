@@ -1,3 +1,4 @@
+import { SummarizedResult } from "../types";
 import { ClientToServerChannel, ServerToClientChannel } from "./channels.enum";
 
 export type ChannelBody<T extends ClientToServerChannel | ServerToClientChannel> =
@@ -14,5 +15,11 @@ export type ChannelBody<T extends ClientToServerChannel | ServerToClientChannel>
             message: string;
         }[];
     } :
+    
+    T extends ClientToServerChannel.search ? { topic: string } :
+    T extends ServerToClientChannel.progress ? { message: string } :
+    T extends ServerToClientChannel.result ? SummarizedResult :
+    T extends ServerToClientChannel.error ? { message: string } :
+    T extends ServerToClientChannel.complete ? { message: string } :
 
     never; 

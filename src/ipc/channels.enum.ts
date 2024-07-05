@@ -1,6 +1,7 @@
 export enum ClientToServerChannel {
     SendMessage = 'clientToServer.sendMessage',
     RequestChatHistory = 'clientToServer.requestChatHistory',
+    search = 'search',
 }
 
 export enum ServerToClientChannel {

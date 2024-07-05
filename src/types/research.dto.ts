@@ -45,6 +45,11 @@ export interface SummarizedResult extends GoogleSearchResultClient {
   llmSummary: string;
 }
 
+export interface SummarizedResultChunk extends Partial<SummarizedResult> {
+  link: string;
+  chunk: string;
+}
+
 export interface ResearchResultClient {
   metaSummary: string;
   summarizedResults: SummarizedResult[];

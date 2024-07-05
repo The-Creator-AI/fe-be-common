@@ -6,4 +6,8 @@ export enum ClientToServerChannel {
 export enum ServerToClientChannel {
     SendMessage = 'serverToClient.sendMessage',
     SendChatHistory = 'serverToClient.sendChatHistory',
+    progress = 'progress',
+    result = 'result',
+    error = 'error',
+    complete = 'complete'
 }

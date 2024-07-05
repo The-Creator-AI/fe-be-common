@@ -1,4 +1,4 @@
-import { ChatMessageType, SummarizedResult, SummarizedResultChunk } from "../types";
+import { BotMessageChunk, ChatMessageType, SummarizedResult, SummarizedResultChunk, UserMessage } from "../types";
 import { ToServer, ToClient } from "./channels.enum";
 
 export type ChannelBody<T extends ToServer | ToClient> =
@@ -10,8 +10,13 @@ export type ChannelBody<T extends ToServer | ToClient> =
     T extends ToClient.COMPLETE ? { message: string } :
     T extends ToClient.CHUNK ? SummarizedResultChunk:
     // --- Code Chat ---
-    T extends ToServer.USER_MESSAGE ? ChatMessageType :
+    T extends ToServer.USER_MESSAGE ? UserMessage : 
     T extends ToClient.BOT_MESSAGE ? ChatMessageType :
+    T extends ToClient.BOT_MESSAGE_CHUNK ? BotMessageChunk :
+    T extends ToServer.GET_FILE_CONTENT ? { filePath: string } :
+    T extends ToClient.FILE_CONTENT ? string :
+    T extends ToServer.GET_TOKEN_COUNT ? UserMessage :
+    T extends ToClient.TOKEN_COUNT ? number :
 
     // --- Other Groups... ---
     never; 

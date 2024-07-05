@@ -3,6 +3,8 @@ export enum ToServer {
     SEARCH = 'clientToServer.search',
     // --- Code Chat ---
     USER_MESSAGE = 'clientToServer.userMessage',
+    GET_FILE_CONTENT = 'clientToServer.getFileContent',
+    GET_TOKEN_COUNT = 'clientToServer.getTokens',
 }
 
 export enum ToClient {
@@ -14,4 +16,7 @@ export enum ToClient {
     COMPLETE = 'serverToClient.complete',
     // --- Code Chat ---
     BOT_MESSAGE = 'serverToClient.botMessage',
+    BOT_MESSAGE_CHUNK = 'serverToClient.botMessageChunk',
+    FILE_CONTENT = 'serverToClient.fileContent',
+    TOKEN_COUNT = 'serverToClient.tokenCount',
 }

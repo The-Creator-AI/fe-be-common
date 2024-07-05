@@ -50,5 +50,8 @@
         "tsdx": "^0.14.1",
         "tslib": "^2.6.3",
         "typescript": "^3.9.10"
+    },
+    "dependencies": {
+        "socket.io-client": "^4.7.5"
     }
 }

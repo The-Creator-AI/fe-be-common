@@ -5,6 +5,9 @@ export enum ToServer {
     USER_MESSAGE = 'clientToServer.userMessage',
     GET_FILE_CONTENT = 'clientToServer.getFileContent',
     GET_TOKEN_COUNT = 'clientToServer.getTokens',
+    // --- Plans ---
+    SAVE_PLAN = 'clientToServer.savePlan',
+    GET_PLANS = 'clientToServer.getPlans',
 }
 
 export enum ToClient {
@@ -19,4 +22,6 @@ export enum ToClient {
     BOT_MESSAGE_CHUNK = 'serverToClient.botMessageChunk',
     FILE_CONTENT = 'serverToClient.fileContent',
     TOKEN_COUNT = 'serverToClient.tokenCount',
+    // --- Plans ---
+    PLANS = 'serverToClient.plans',
 }

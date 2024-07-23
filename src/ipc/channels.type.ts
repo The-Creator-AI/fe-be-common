@@ -1,6 +1,7 @@
 import {
   BotMessageChunk,
   ChatMessageType,
+  ChatType,
   PlanType,
   SummarizedResult,
   SummarizedResultChunk,
@@ -44,5 +45,12 @@ export type ChannelBody<T extends ToServer | ToClient> =
     ? {}
     : T extends ToClient.PLANS
     ? PlanType[]
+    // --- Chats ---
+    : T extends ToServer.SAVE_CHAT
+    ? Omit<ChatType, 'id'>
+    : T extends ToServer.GET_CHATS
+    ? {}
+    : T extends ToClient.CHATS
+    ? ChatType[]
     : // --- Other Groups... ---
       never;

@@ -1,3 +1,11 @@
+
+export interface  ChatType {
+  id?: number;
+  title: string;
+  description: string;
+  chat_history: ChatMessageType[];
+}
+
 export interface ChatMessageType {
   uuid: string;
   user: 'user' | 'bot' | 'instructor';

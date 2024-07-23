@@ -8,6 +8,10 @@ export enum ToServer {
     // --- Plans ---
     SAVE_PLAN = 'clientToServer.savePlan',
     GET_PLANS = 'clientToServer.getPlans',
+    // --- Chats ---
+    SAVE_CHAT = 'clientToServer.saveChat',
+    GET_CHATS = 'clientToServer.getChats',
+    // --- Other Groups... ---
 }
 
 export enum ToClient {
@@ -24,4 +28,7 @@ export enum ToClient {
     TOKEN_COUNT = 'serverToClient.tokenCount',
     // --- Plans ---
     PLANS = 'serverToClient.plans',
+    // --- Chats ---
+    CHATS = 'serverToClient.chats',
+    // --- Other Groups... ---
 }

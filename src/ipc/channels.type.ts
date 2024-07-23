@@ -41,6 +41,8 @@ export type ChannelBody<T extends ToServer | ToClient> =
     // --- Plans ---
     : T extends ToServer.SAVE_PLAN
     ? Omit<PlanType, 'id'> & { id?: number }
+    : T extends ToServer.DELETE_PLAN
+    ? { id: number }
     : T extends ToServer.GET_PLANS
     ? {}
     : T extends ToClient.PLANS
@@ -48,6 +50,8 @@ export type ChannelBody<T extends ToServer | ToClient> =
     // --- Chats ---
     : T extends ToServer.SAVE_CHAT
     ? Omit<ChatType, 'id'>
+    : T extends ToServer.DELETE_CHAT
+    ? { id: number }
     : T extends ToServer.GET_CHATS
     ? {}
     : T extends ToClient.CHATS

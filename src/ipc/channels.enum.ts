@@ -7,9 +7,11 @@ export enum ToServer {
     GET_TOKEN_COUNT = 'clientToServer.getTokens',
     // --- Plans ---
     SAVE_PLAN = 'clientToServer.savePlan',
+    DELETE_PLAN = 'clientToServer.deletePlan',
     GET_PLANS = 'clientToServer.getPlans',
     // --- Chats ---
     SAVE_CHAT = 'clientToServer.saveChat',
+    DELETE_CHAT = 'clientToServer.deleteChat',
     GET_CHATS = 'clientToServer.getChats',
     // --- Other Groups... ---
 }

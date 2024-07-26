@@ -6,6 +6,7 @@ import {
   SummarizedResult,
   SummarizedResultChunk,
   UserMessage,
+  Agent,
 } from '../types';
 import { ToServer, ToClient } from './channels.enum';
 
@@ -23,8 +24,8 @@ export type ChannelBody<T extends ToServer | ToClient> =
     ? { message: string }
     : T extends ToClient.CHUNK
     ? SummarizedResultChunk
-    // --- Code Chat ---
-    : T extends ToServer.USER_MESSAGE
+    : // --- Code Chat ---
+    T extends ToServer.USER_MESSAGE
     ? UserMessage
     : T extends ToClient.BOT_MESSAGE
     ? ChatMessageType
@@ -38,8 +39,8 @@ export type ChannelBody<T extends ToServer | ToClient> =
     ? UserMessage
     : T extends ToClient.TOKEN_COUNT
     ? number
-    // --- Plans ---
-    : T extends ToServer.SAVE_PLAN
+    : // --- Plans ---
+    T extends ToServer.SAVE_PLAN
     ? Omit<PlanType, 'id'> & { id?: number }
     : T extends ToServer.DELETE_PLAN
     ? { id: number }
@@ -47,8 +48,8 @@ export type ChannelBody<T extends ToServer | ToClient> =
     ? {}
     : T extends ToClient.PLANS
     ? PlanType[]
-    // --- Chats ---
-    : T extends ToServer.SAVE_CHAT
+    : // --- Chats ---
+    T extends ToServer.SAVE_CHAT
     ? Omit<ChatType, 'id'>
     : T extends ToServer.DELETE_CHAT
     ? { id: number }
@@ -56,5 +57,14 @@ export type ChannelBody<T extends ToServer | ToClient> =
     ? {}
     : T extends ToClient.CHATS
     ? ChatType[]
+    : // --- Agents ---
+    T extends ToServer.GET_AGENTS
+    ? {}
+    : T extends ToServer.SAVE_AGENT
+    ? Agent & { id?: string }
+    : T extends ToServer.DELETE_AGENT
+    ? { id: string }
+    : T extends ToClient.AGENTS
+    ? Agent[]
     : // --- Other Groups... ---
       never;

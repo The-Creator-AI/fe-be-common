@@ -6,7 +6,7 @@ import {
   SummarizedResult,
   SummarizedResultChunk,
   UserMessage,
-  Agent,
+  AgentType,
 } from '../types';
 import { ToServer, ToClient } from './channels.enum';
 
@@ -61,10 +61,10 @@ export type ChannelBody<T extends ToServer | ToClient> =
     T extends ToServer.GET_AGENTS
     ? {}
     : T extends ToServer.SAVE_AGENT
-    ? Agent & { id?: string }
+    ? Omit<AgentType, 'id'> & { id?: number }
     : T extends ToServer.DELETE_AGENT
-    ? { id: string }
+    ? { id: number }
     : T extends ToClient.AGENTS
-    ? Agent[]
+    ? AgentType[]
     : // --- Other Groups... ---
       never;

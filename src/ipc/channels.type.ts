@@ -66,5 +66,8 @@ export type ChannelBody<T extends ToServer | ToClient> =
     ? { id: number }
     : T extends ToClient.AGENTS
     ? AgentType[]
+    : // --- Save Code To File ---
+    T extends ToServer.SAVE_CODE_TO_FILE
+    ? { filePath: string; code: string }
     : // --- Other Groups... ---
       never;

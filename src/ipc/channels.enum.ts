@@ -5,6 +5,7 @@ export enum ToServer {
   USER_MESSAGE = 'clientToServer.userMessage',
   GET_FILE_CONTENT = 'clientToServer.getFileContent',
   GET_TOKEN_COUNT = 'clientToServer.getTokens',
+  SAVE_CODE_TO_FILE = 'clientToServer.saveCodeToFile', // Added new channel
   // --- Plans ---
   SAVE_PLAN = 'clientToServer.savePlan',
   DELETE_PLAN = 'clientToServer.deletePlan',

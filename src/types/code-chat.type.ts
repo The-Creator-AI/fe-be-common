@@ -7,6 +7,7 @@ export interface  ChatType {
 }
 
 export interface ChatMessageType {
+  chatId: number;
   uuid: string;
   user: 'user' | 'bot' | 'instructor';
   message: string;
@@ -15,11 +16,12 @@ export interface ChatMessageType {
   isCollapsed?: boolean;
 }
 
-export interface BotMessageChunk extends Pick<ChatMessageType, "uuid" | "user" | "model"> {
+export interface BotMessageChunk extends Pick<ChatMessageType, "chatId" | "uuid" | "user" | "model"> {
   chunk: string;
 }
 
 export interface UserMessage {
+  chatId: number;
   chatHistory: ChatMessageType[];
   selectedFiles: string[];
 }

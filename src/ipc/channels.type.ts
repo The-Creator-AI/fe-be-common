@@ -68,10 +68,10 @@ export type ChannelBody<T extends ToServer | ToClient> =
     ? AgentType[]
     : // --- Save Code To File ---
     T extends ToServer.SAVE_CODE_TO_FILE
-    ? { filePath: string; code: string }
+    ? { filePath: string; currentPath: string; code: string }
     // --- Full file path ---
     : T extends ToServer.GET_FULL_FILE_PATH
-    ? { filePath: string }
+    ? { filePath: string, currentPath: string }
     : T extends ToClient.FULL_FILE_PATH
     ? string
     : // --- Other Groups... ---

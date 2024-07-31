@@ -6,6 +6,7 @@ export enum ToServer {
   GET_FILE_CONTENT = 'clientToServer.getFileContent',
   GET_TOKEN_COUNT = 'clientToServer.getTokens',
   SAVE_CODE_TO_FILE = 'clientToServer.saveCodeToFile', // Added new channel
+  GET_FULL_FILE_PATH = 'clientToServer.getFullPath',
   // --- Plans ---
   SAVE_PLAN = 'clientToServer.savePlan',
   DELETE_PLAN = 'clientToServer.deletePlan',
@@ -33,6 +34,7 @@ export enum ToClient {
   BOT_MESSAGE_CHUNK = 'serverToClient.botMessageChunk',
   FILE_CONTENT = 'serverToClient.fileContent',
   TOKEN_COUNT = 'serverToClient.tokenCount',
+  FULL_FILE_PATH = 'serverToClient.fullFilePath',
   // --- Plans ---
   PLANS = 'serverToClient.plans',
   // --- Chats ---
